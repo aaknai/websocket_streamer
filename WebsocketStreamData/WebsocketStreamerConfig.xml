@@ -1,0 +1,9 @@
+
+<WebSocketStreamerConfig>
+    <service>
+        <messages>
+            <sessage>{}</sessage>
+        </messages>
+        <serviceUrl>ws://portal.mscoe.it:6180/arcgis/ws/services/smart_airfield/fluel-tank-stream/StreamServer/broadcast</serviceUrl>
+    </service>
+</WebSocketStreamerConfig>

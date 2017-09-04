@@ -1,9 +1,11 @@
-package it.fabaris.websocket.stream.data;
+package it.fabaris.websocket.stream;
 
 import java.util.ArrayList;
 
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
+
+import it.fabaris.websocket.stream.data.ServiceData;
 
 public class ServicesTableModel extends DefaultTableModel {
 

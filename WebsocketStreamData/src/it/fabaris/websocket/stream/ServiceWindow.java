@@ -1,4 +1,4 @@
-package it.fabaris.websocket.stream.data;
+package it.fabaris.websocket.stream;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -28,6 +28,7 @@ public class ServiceWindow extends JDialog {
 	private JPanel contentPane;
 	private JTextField txtURL;
 	private JTextArea txtMessages;
+	private int exitCode;
 
 	/**
 	 * Launch the application.
@@ -87,6 +88,7 @@ public class ServiceWindow extends JDialog {
 		JButton btnOk = new JButton("OK");
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				exitCode = 0;
 				ServiceWindow.this.setVisible(false);
 			}
 		});
@@ -99,5 +101,11 @@ public class ServiceWindow extends JDialog {
 	}
 	public JTextArea getTxtMessages() {
 		return txtMessages;
+	}
+
+	public int open() {
+		exitCode = -1;
+		this.setVisible(true);
+		return exitCode;
 	}
 }

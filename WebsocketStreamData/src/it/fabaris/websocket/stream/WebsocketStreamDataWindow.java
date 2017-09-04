@@ -1,4 +1,4 @@
-package it.fabaris.websocket.stream.data;
+package it.fabaris.websocket.stream;
 
 import java.awt.EventQueue;
 
@@ -10,9 +10,17 @@ import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import org.json.JSONObject;
+
+import it.fabaris.websocket.stream.data.ServiceData;
+import sun.security.krb5.Config;
+
 import java.awt.Window.Type;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class WebsocketStreamDataWindow {
@@ -60,12 +68,43 @@ public class WebsocketStreamDataWindow {
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				WebsocketStreamDataWindow.this.getServiceWindow().setVisible(true);
-				tableModel.addRow(new ServiceData(serviceWindow.getTxtURL().getText(), Arrays.asList(serviceWindow.getTxtMessages().getText().split("[^\r\n]+"))));
-				frame.repaint();
+				if(WebsocketStreamDataWindow.this.getServiceWindow().open() != 0) return;
+				String url = serviceWindow.getTxtURL().getText();
+				List<JSONObject> messages = new ArrayList<>();
+				String[] lines = serviceWindow.getTxtMessages().getText().split("\r?\n");
+				for(String s : lines){
+					try{
+						JSONObject obj = new JSONObject(s);
+						messages.add(obj);
+					}catch (Exception ex) {
+						System.out.println("Error parsing json:"+ex.getMessage());
+					}
+				}
+				if(messages.size()==0)return;
+				tableModel.addRow(new ServiceData(url, messages));
 			}
 		});
 		panel.add(btnAdd);
+		
+		JButton btnSave = new JButton("Save");
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Configuration.getInstance().getConfig().services = tableModel.getData();
+				Configuration.getInstance().save();
+			}
+		});
+		panel.add(btnSave);
+		
+		JButton btnLoad = new JButton("Load");
+		btnLoad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Configuration.getInstance().load();
+				tableModel.getData().clear();
+				tableModel.getData().addAll(Configuration.getInstance().getConfig().services);
+				tableModel.fireTableDataChanged();
+			}
+		});
+		panel.add(btnLoad);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
