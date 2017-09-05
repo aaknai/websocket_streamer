@@ -1,8 +1,13 @@
 package it.fabaris.websocket.client;
 
 import java.net.URI;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+
+import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.client.ClientUpgradeRequest;
 import org.eclipse.jetty.websocket.client.WebSocketClient;
+
 
 import it.fabaris.websocket.client.SimpleWebsocket.WebsocketHandler;
 
@@ -15,7 +20,8 @@ public class SimpleWebsocketEndpoint {
 	}
 	public SimpleWebsocketEndpoint connect() throws Exception {
 		client.start();
-		client.connect(websocket, uri, new ClientUpgradeRequest());
+		Future<Session> fut = client.connect(websocket, uri, new ClientUpgradeRequest());
+		fut.get(5, TimeUnit.SECONDS);
 		return this;
 	}
 
