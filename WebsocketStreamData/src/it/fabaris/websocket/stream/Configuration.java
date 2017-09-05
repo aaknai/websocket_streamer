@@ -24,7 +24,8 @@ public class Configuration {
 			marshaller = ctx.createMarshaller();
 			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			marshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
-		} catch (JAXBException e) {
+			if(new File("WebsocketStreamerConfig.xml").exists()) Configuration.getInstance().load();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

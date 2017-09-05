@@ -2,8 +2,88 @@
 <WebSocketStreamerConfig>
     <service>
         <messages>
-            <sessage>{}</sessage>
+            <sessage>{"attributes":{"date":1502352000,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":150}}</sessage>
+            <sessage>{"attributes":{"date":1502352300,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":147.5}}</sessage>
+            <sessage>{"attributes":{"date":1502352600,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":145}}</sessage>
+            <sessage>{"attributes":{"date":1502352900,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":142.5}}</sessage>
+            <sessage>{"attributes":{"date":1502353200,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":140}}</sessage>
+            <sessage>{"attributes":{"date":1502353500,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":137.5}}</sessage>
+            <sessage>{"attributes":{"date":1502353800,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":135}}</sessage>
+            <sessage>{"attributes":{"date":1502354100,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":132.5}}</sessage>
+            <sessage>{"attributes":{"date":1502354400,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":130}}</sessage>
+            <sessage>{"attributes":{"date":1502354700,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":127.5}}</sessage>
+            <sessage>{"attributes":{"date":1502355000,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":125}}</sessage>
+            <sessage>{"attributes":{"date":1502355300,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":122.5}}</sessage>
+            <sessage>{"attributes":{"date":1502355600,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":120}}</sessage>
+            <sessage>{"attributes":{"date":1502355900,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":117.5}}</sessage>
+            <sessage>{"attributes":{"date":1502356200,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":115}}</sessage>
+            <sessage>{"attributes":{"date":1502356500,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":112.5}}</sessage>
+            <sessage>{"attributes":{"date":1502356800,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":110}}</sessage>
+            <sessage>{"attributes":{"date":1502357100,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":107.5}}</sessage>
+            <sessage>{"attributes":{"date":1502357400,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":105}}</sessage>
+            <sessage>{"attributes":{"date":1502357700,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":102.5}}</sessage>
+            <sessage>{"attributes":{"date":1502358000,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":100}}</sessage>
+            <sessage>{"attributes":{"date":1502358300,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":97.5}}</sessage>
+            <sessage>{"attributes":{"date":1502358600,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":95}}</sessage>
+            <sessage>{"attributes":{"date":1502358900,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":92.5}}</sessage>
+            <sessage>{"attributes":{"date":1502359200,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":90}}</sessage>
+            <sessage>{"attributes":{"date":1502359500,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":87.5}}</sessage>
+            <sessage>{"attributes":{"date":1502359800,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":85}}</sessage>
+            <sessage>{"attributes":{"date":1502360100,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":82.5}}</sessage>
+            <sessage>{"attributes":{"date":1502360400,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":80}}</sessage>
+            <sessage>{"attributes":{"date":1502360700,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":77.5}}</sessage>
+            <sessage>{"attributes":{"date":1502361000,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":75}}</sessage>
+            <sessage>{"attributes":{"date":1502361300,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":72.5}}</sessage>
+            <sessage>{"attributes":{"date":1502361600,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":70}}</sessage>
+            <sessage>{"attributes":{"date":1502361900,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":67.5}}</sessage>
+            <sessage>{"attributes":{"date":1502362200,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":65}}</sessage>
+            <sessage>{"attributes":{"date":1502362500,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":62.5}}</sessage>
+            <sessage>{"attributes":{"date":1502362800,"fluel_capacity":200,"tank_id":"tank n.1","fluel_level":60}}</sessage>
         </messages>
         <serviceUrl>ws://portal.mscoe.it:6180/arcgis/ws/services/smart_airfield/fluel-tank-stream/StreamServer/broadcast</serviceUrl>
     </service>
+    <service>
+        <messages>
+            <sessage>{"attributes":{"date":"1502352000","fluel_capacity":250,"tank_id":"tank n.2","fluel_level":170}}</sessage>
+            <sessage>{"attributes":{"date":"1502352300","fluel_capacity":250,"tank_id":"tank n.2","fluel_level":169.5}}</sessage>
+            <sessage>{"attributes":{"date":"1502352600","fluel_capacity":250,"tank_id":"tank n.2","fluel_level":169}}</sessage>
+            <sessage>{"attributes":{"date":"1502352900","fluel_capacity":250,"tank_id":"tank n.2","fluel_level":168.5}}</sessage>
+            <sessage>{"attributes":{"date":"1502353200","fluel_capacity":250,"tank_id":"tank n.2","fluel_level":168}}</sessage>
+            <sessage>{"attributes":{"date":"1502353500","fluel_capacity":250,"tank_id":"tank n.2","fluel_level":167.5}}</sessage>
+            <sessage>{"attributes":{"date":"1502353800","fluel_capacity":250,"tank_id":"tank n.2","fluel_level":167}}</sessage>
+            <sessage>{"attributes":{"date":"1502354100","fluel_capacity":250,"tank_id":"tank n.2","fluel_level":166.5}}</sessage>
+            <sessage>{"attributes":{"date":1502354400,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":166}}</sessage>
+            <sessage>{"attributes":{"date":1502354700,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":165.5}}</sessage>
+            <sessage>{"attributes":{"date":1502355000,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":165}}</sessage>
+            <sessage>{"attributes":{"date":1502355300,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":164.5}}</sessage>
+            <sessage>{"attributes":{"date":1502355600,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":164}}</sessage>
+            <sessage>{"attributes":{"date":1502355900,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":163.5}}</sessage>
+            <sessage>{"attributes":{"date":1502356200,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":163}}</sessage>
+            <sessage>{"attributes":{"date":1502356500,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":162.5}}</sessage>
+            <sessage>{"attributes":{"date":1502356800,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":162}}</sessage>
+            <sessage>{"attributes":{"date":1502357100,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":161.5}}</sessage>
+            <sessage>{"attributes":{"date":1502357400,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":161}}</sessage>
+            <sessage>{"attributes":{"date":1502357700,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":160.5}}</sessage>
+            <sessage>{"attributes":{"date":1502358000,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":160}}</sessage>
+            <sessage>{"attributes":{"date":1502358300,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":159.5}}</sessage>
+            <sessage>{"attributes":{"date":1502358600,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":159}}</sessage>
+            <sessage>{"attributes":{"date":1502358900,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":158.5}}</sessage>
+            <sessage>{"attributes":{"date":1502359200,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":158}}</sessage>
+            <sessage>{"attributes":{"date":1502359500,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":157.5}}</sessage>
+            <sessage>{"attributes":{"date":1502359800,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":157}}</sessage>
+            <sessage>{"attributes":{"date":1502360100,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":156.5}}</sessage>
+            <sessage>{"attributes":{"date":1502360400,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":156}}</sessage>
+            <sessage>{"attributes":{"date":1502360700,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":155.5}}</sessage>
+            <sessage>{"attributes":{"date":1502361000,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":155}}</sessage>
+            <sessage>{"attributes":{"date":1502361300,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":154.5}}</sessage>
+            <sessage>{"attributes":{"date":1502361600,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":154}}</sessage>
+            <sessage>{"attributes":{"date":1502361900,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":153.5}}</sessage>
+            <sessage>{"attributes":{"date":1502362200,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":153}}</sessage>
+            <sessage>{"attributes":{"date":1502362500,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":152.5}}</sessage>
+            <sessage>{"attributes":{"date":1502362800,"fluel_capacity":250,"tank_id":"tank n.2","fluel_level":152}}</sessage>
+        </messages>
+        <serviceUrl>ws://portal.mscoe.it:6180/arcgis/ws/services/smart_airfield/fluel-tank-stream/StreamServer/broadcast</serviceUrl>
+    </service>
+    <objectAttribute>attributes</objectAttribute>
+    <dateField>date</dateField>
 </WebSocketStreamerConfig>
