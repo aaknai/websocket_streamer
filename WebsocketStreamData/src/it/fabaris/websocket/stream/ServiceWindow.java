@@ -53,7 +53,7 @@ public class ServiceWindow extends JDialog {
 		setModal(true);
 		setType(Type.POPUP);
 		setTitle("Service");
-		setBounds(100, 100, 650, 300);
+		setBounds(100, 100, 980, 685);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -68,7 +68,7 @@ public class ServiceWindow extends JDialog {
 		
 		txtURL = new JTextField();
 		lblUrl.setLabelFor(txtURL);
-		txtURL.setText("ws://portal.mscoe.it:6180/arcgis/ws/services/smart_airfield/fluel-tank-stream/StreamServer/broadcast");
+		txtURL.setText("ws://portal.mscoe.it:6180/arcgis/ws/services/smart_airfield/fuel-tank/StreamServer/broadcast");
 		panel.add(txtURL);
 		txtURL.setColumns(10);
 		txtURL.setMaximumSize(new Dimension(5000, 30));

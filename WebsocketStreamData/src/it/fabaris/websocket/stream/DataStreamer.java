@@ -60,10 +60,14 @@ public class DataStreamer implements Runnable {
 			else if(a.localDateTime.isBefore(b.localDateTime)) return -1;
 			else return 0;
 		});
+		for(ServiceFlatData d : data) {
+			System.out.println(d.localDateTime+":"+d.message.toString());
+			break;
+		}
 	}
 	private LocalDateTime getDate(JSONObject o) {
 		JSONObject baseObject = Configuration.getInstance().getConfig().objectAttribute != null ? o.getJSONObject(Configuration.getInstance().getConfig().objectAttribute) : o;
-		long millis = baseObject.getLong(Configuration.getInstance().getConfig().dateField)*1000;
+		long millis = baseObject.getLong(Configuration.getInstance().getConfig().dateField);
 		return LocalDateTime.ofInstant(Instant.ofEpochMilli(millis), ZoneId.systemDefault());
 	}
 	public void closeEndpoints(){

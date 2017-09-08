@@ -1,6 +1,7 @@
 package it.fabaris.websocket.stream;
 
 import java.awt.EventQueue;
+import java.awt.Point;
 
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
@@ -10,8 +11,10 @@ import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellEditor;
 
 import org.json.JSONObject;
+
 
 import it.fabaris.websocket.stream.data.ServiceData;
 import sun.security.krb5.Config;
@@ -22,10 +25,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 import java.awt.event.ActionEvent;
 import java.awt.Component;
 import javax.swing.Box;
@@ -38,10 +43,12 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class WebsocketStreamDataWindow {
 
-	private JFrame frame;
+	private JFrame frmDataStreammer;
 	private JTable table;
 	private ServiceWindow serviceWindow = new ServiceWindow();
 	private ServicesTableModel tableModel;
@@ -66,7 +73,7 @@ public class WebsocketStreamDataWindow {
 			public void run() {
 				try {
 					WebsocketStreamDataWindow window = new WebsocketStreamDataWindow();
-					window.frame.setVisible(true);
+					window.frmDataStreammer.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -92,8 +99,9 @@ public class WebsocketStreamDataWindow {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.addWindowListener(new WindowAdapter() {
+		frmDataStreammer = new JFrame();
+		frmDataStreammer.setTitle("Data Streammer");
+		frmDataStreammer.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent arg0) {
 				String ObjButtons[] = {"Yes","No"};
@@ -108,12 +116,12 @@ public class WebsocketStreamDataWindow {
 			    }
 			}
 		});
-		frame.setBounds(100, 100, 598, 399);
-		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		frame.getContentPane().setLayout(new BorderLayout(0, 0));
+		frmDataStreammer.setBounds(100, 100, 598, 399);
+		frmDataStreammer.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frmDataStreammer.getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_3 = new JPanel();
-		frame.getContentPane().add(panel_3, BorderLayout.NORTH);
+		frmDataStreammer.getContentPane().add(panel_3, BorderLayout.NORTH);
 		panel_3.setLayout(new BoxLayout(panel_3, BoxLayout.Y_AXIS));
 		
 		JPanel panel = new JPanel();
@@ -123,7 +131,7 @@ public class WebsocketStreamDataWindow {
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(WebsocketStreamDataWindow.this.getServiceWindow().open() != 0) return;
-				String url = serviceWindow.getTxtURL().getText();
+				String url = serviceWindow.getTxtURL().getText().trim();
 				List<JSONObject> messages = new ArrayList<>();
 				String[] lines = serviceWindow.getTxtMessages().getText().split("\r?\n");
 				for(String s : lines){
@@ -204,15 +212,42 @@ public class WebsocketStreamDataWindow {
 		panel_2.add(horizontalGlue_3);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
+		frmDataStreammer.getContentPane().add(scrollPane, BorderLayout.CENTER);
 
 		tableModel = new ServicesTableModel();
 		table = new JTable();
 		table.setModel(tableModel);
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent me) {
+				if(me.getSource()!=table)return;
+				if(me.getClickCount() != 2) return;
+				Point p = me.getPoint();
+				int row = table.rowAtPoint(p);
+				serviceWindow.getTxtURL().setText(tableModel.getData().get(row).getServiceUrl());
+				serviceWindow.getTxtMessages().setText(tableModel.getData().get(row).getMessages().stream().map(d -> d.toString()).collect(Collectors.joining("\n")));
+				if(serviceWindow.open() != 0) return;
+				String url = serviceWindow.getTxtURL().getText().trim();
+				String[] lines = serviceWindow.getTxtMessages().getText().split("\r?\n");
+				ArrayList<JSONObject> messages = new ArrayList<>();
+				for(String s : lines){
+					try{
+						JSONObject obj = new JSONObject(s);
+						messages.add(obj);
+					}catch (Exception ex) {
+						System.out.println("Error parsing json:"+ex.getMessage());
+					}
+				}
+				if(messages.size()==0)return;
+				tableModel.getData().get(row).setServiceUrl(url);
+				tableModel.getData().get(row).setMessages(messages);
+				tableModel.fireTableDataChanged();
+			}
+		});
 		scrollPane.setViewportView(table);
 		
 		JPanel panel_1 = new JPanel();
-		frame.getContentPane().add(panel_1, BorderLayout.SOUTH);
+		frmDataStreammer.getContentPane().add(panel_1, BorderLayout.SOUTH);
 		panel_1.setLayout(new BoxLayout(panel_1, BoxLayout.X_AXIS));
 		
 		lblStatus = new JLabel("Status:");
